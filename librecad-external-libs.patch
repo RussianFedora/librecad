@@ -1,0 +1,29 @@
+--- a/librecad/src/src.pro
++++ b/librecad/src/src.pro
+@@ -36,7 +36,6 @@
+     CONFIG += help 
+ } 
+ 
+-PRE_TARGETDEPS += ../../generated/lib/libdxfrw.a
+ PRE_TARGETDEPS += ../../generated/lib/libjwwlib.a
+ 
+ DESTDIR = $${INSTALLDIR}
+@@ -76,7 +75,7 @@
+     -ljwwlib
+ 
+ DEPENDPATH += \
+-    ../../libraries/libdxfrw/src \
++    /usr/include/libdxfrw0 \
+     ../../libraries/jwwlib/src \
+     cmd \
+     lib/actions \
+--- LibreCAD-2.orig/libraries/libraries.pro
++++ LibreCAD-2/libraries/libraries.pro
+@@ -9,7 +9,6 @@
+ TARGET = libraries
+ 
+ SUBDIRS     = \
+-        libdxfrw \
+         jwwlib
+ 
+ 
