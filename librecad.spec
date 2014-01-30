@@ -5,7 +5,7 @@ Summary:        A generic 2D CAD program
 
 License:        GPLv2
 URL:            http://www.librecad.org
-Source0:        https://github.com/LibreCAD/LibreCAD/archive/%{version}.tar.gz
+Source0:        http://github.com/LibreCAD/LibreCAD/archive/%{version}.tar.gz
 Source1:        %{name}-rpmlintrc
 Patch2:         %{name}-external-libs.patch
 
