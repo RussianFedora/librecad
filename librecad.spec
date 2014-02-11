@@ -5,11 +5,7 @@ Summary:        A generic 2D CAD program
 
 License:        GPLv2
 URL:            http://www.librecad.org
-%if (0%{?rhel} > 0)
-Source0:        http://github.com/LibreCAD/LibreCAD/archive/%{version}
-%else
 Source0:        http://github.com/LibreCAD/LibreCAD/archive/%{version}.tar.gz
-%endif
 Source1:        %{name}-rpmlintrc
 Patch2:         %{name}-external-libs.patch
 
@@ -53,6 +49,10 @@ sed -i -e 's|RESOURCEDIR="\${THISDIR}\/unix\/resources"|RESOURCEDIR=\$BUILDDIR|'
 #sed -i -e 's|# Generate translations|# Generate translations\nLRELEASE="lrelease-qt4"|' scripts/postprocess-unix.sh
 
 sed -i -e 's|QStringList ret;|if (subDirectory=="plugins") {\n\t\tdirList.append("%{_libdir}/" + appDirName + "/" + subDirectory);\n\t}\n\n\tQStringList ret;|' librecad/src/lib/engine/rs_system.cpp
+
+%if (0%{?rhel} > 0)
+sed -i -e 's|std=c++11|std=c++0x|g' common.pri
+%endif
 
 
 %build
